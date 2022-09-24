@@ -36,3 +36,28 @@ class PublicTransportRoute: Strategy {
         print("대중교통 알고리즘 적용")
     }
 }
+
+class Navigation {
+    private var routeAlgorithm: Strategy?
+    
+    func execute() {
+        self.routeAlgorithm?.executeAlgorithm()
+    }
+    
+    func setStrategy(strategy: Strategy) {
+        self.routeAlgorithm = strategy
+    }
+}
+
+let navigation = Navigation()
+
+//필요에 따라 각 기능에 필요한 알고리즘을 호출해서 사용할 수 있음
+navigation.setStrategy(strategy: CarRoute())
+navigation.execute()
+
+navigation.setStrategy(strategy: OnFootRoute())
+navigation.execute()
+
+navigation.setStrategy(strategy: PublicTransportRoute())
+navigation.execute()
+
