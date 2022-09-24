@@ -12,3 +12,27 @@ import UIKit
  자가용, 도보, 대중교통 경로에 대한 알고리즘을 각각 캡슐화 해서, 서로 영향을 주지도 않고 독립적으로 사용할 수 있게 한다.
  
  */
+
+
+//알고리즘을 실행하는 프로토콜
+protocol Strategy {
+    func executeAlgorithm()
+}
+
+class CarRoute: Strategy {
+    func executeAlgorithm() {
+        print("자가용 알고리즘 적용")
+    }
+}
+
+class OnFootRoute: Strategy {
+    func executeAlgorithm() {
+        print("도보 알고리즘 적용")
+    }
+}
+
+class PublicTransportRoute: Strategy {
+    func executeAlgorithm() {
+        print("대중교통 알고리즘 적용")
+    }
+}
